@@ -25,7 +25,7 @@ SECRET_KEY = 'a=+3du+25%*si&t$n7y31plc@!9cij3$k%=e4t0=0s=#7!ybax'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "middle_lib.response_middle.ResponseMiddle"
+
 ]
 
 ROOT_URLCONF = 'MT.urls'
@@ -125,3 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"MT","static")
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")

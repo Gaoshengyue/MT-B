@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path
+from django.views.static import  serve
+from MT import settings
+from MeowTheory.views import GetUserDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^media/(?P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT}),
+    re_path(r"user_detail/",GetUserDetail.as_view())
 ]
