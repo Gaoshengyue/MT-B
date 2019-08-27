@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 
 class Level(models.Model):
@@ -47,6 +47,7 @@ class User(models.Model):
     experience=models.IntegerField(verbose_name="经验值")
     cat=models.ForeignKey(to="Cat",on_delete=False,verbose_name="所有的猫咪",related_name="user",default=None,null=True,blank=True)
     collection=models.ManyToManyField(to="MeowTheory",verbose_name="多收藏",default=None,blank=True)
+    date=models.DateTimeField(auto_created=True,auto_now_add=True)
 
     def __str__(self):
         return self.username
