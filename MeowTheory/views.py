@@ -1,14 +1,9 @@
-from django.shortcuts import render
-
 # Create your views here.
-from MeowTheory.models import *
-from django.core.cache import cache
-import json, datetime, decimal
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.views import View
-from django.db.models import Avg, Sum, Q
-from django.db import connection
+
 from MT.settings import MEDIA_URL
+from MeowTheory.models import *
 
 
 class GetUserDetail(View):
